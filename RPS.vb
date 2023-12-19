@@ -5,6 +5,9 @@
     Private totalwins As Integer
     Private totalloss As Integer
     Private totalties As Integer
+
+
+    'Sub main prints the title, gets user input and computer input by running functions, and informs the user if they won, tied, or lost.
     Sub main()
         PrintTitle()
 
@@ -52,6 +55,7 @@
         Return word
     End Function
 
+    'This function determines if the user won, tied, or lost, and returns the outcome
     Function DetermineOutcome(user As Integer, comp As Integer) As String
         Dim outcome As String = "Lost"
         If (user = 1 AndAlso comp = 3) OrElse
@@ -71,7 +75,8 @@
     End Function
 
     Sub PrintTitle()
-        Console.WriteLine(".-. .-. .-. . .     .-. .-. .-. .-. .-.     .-. .-. .-. .-. .-. .-. .-. .-.
+        Console.WriteLine("
+.-. .-. .-. . .     .-. .-. .-. .-. .-.     .-. .-. .-. .-. .-. .-. .-. .-.
 |(  | | |   |<      |-' |-| |-' |-  |(      `-. |    |  `-. `-. | | |(  `-.
 ' ' `-' `-' ' ` ,   '   ` ' '   `-' ' ' ,   `-' `-' `-' `-' `-' `-' ' ' `-'
     _______           _______               _______
@@ -105,11 +110,19 @@
 
     Sub scoreboard2()
         Dim Percent As Double
+        Dim Percent2 As Double
+        Dim Percent3 As Double
         Dim overall As String
+
+        'These equations determine what percentage of the round that the user won, lost, and tied in.
         Percent = (totalwins / 5) * 100
+        Percent2 = (totalloss / 5) * 100
+        Percent3 = (totalties / 5) * 100
 
         Console.WriteLine($"You won {totalwins} times." & vbNewLine & $"You lost {totalloss} times." & vbNewLine & $"You tied {totalties} times.")
         Console.WriteLine($"You won {Percent}% of the time.")
+        Console.WriteLine($"You lost {Percent2}% of the time.")
+        Console.WriteLine($"You ties {Percent3}% of the time.")
         If totalwins > totalloss Then
             overall = "You are"
         ElseIf totalloss > totalwins Then
